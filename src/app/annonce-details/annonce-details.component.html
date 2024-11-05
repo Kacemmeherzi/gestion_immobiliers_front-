@@ -1,0 +1,28 @@
+<div
+  class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center"
+>
+  <div class="row w-100 h-100">
+    <div class="col-md-8 col-lg-6 mx-auto bg-light p-4 rounded shadow">
+      <h2 class="text-center">{{ annonce.titre }}</h2>
+      <div class="text-center mb-3">
+        <img
+          src="https://via.placeholder.com/600x300"
+          alt="Annonce Image"
+          class="img-fluid rounded mb-3"
+        />
+      </div>
+      <p><strong>Localisation:</strong> {{ annonce.localisation }}</p>
+      <p><strong>Catégorie:</strong> {{ annonce.category }}</p>
+      <p><strong>Prix:</strong> {{ annonce.price }} €</p>
+      <p><strong>Description:</strong> {{ annonce.description }}</p>
+      <p><strong>Chambres:</strong> {{ annonce.nombre_de_chambres }}</p>
+      <p><strong>Surface:</strong> {{ annonce.surface }} m²</p>
+      <p><strong>Date:</strong> {{ annonce.date | date }}</p>
+      <p><strong>Équipé:</strong> {{ annonce.equiped ? "Oui" : "Non" }}</p>
+      <div class="text-center mt-4 p">
+        <a routerLink="/" class="btn btn-primary p-2 mb-3 me-2">Retour à la liste</a>
+        <a routerLink="/" class="btn btn-primary p-2 mb-3">Contacter</a>
+    </div>
+    </div>
+  </div>
+</div>
