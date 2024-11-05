@@ -1,1 +1,121 @@
-<p>annonce-form works!</p>
+<!-- annonce-form.component.html -->
+<div class="d-flex justify-content-center align-items-center vh-50">
+  <form
+    [formGroup]="annonceForm"
+    (ngSubmit)="onSubmit()"
+    class="container mt-4"
+    style="max-width: 500px"
+  >
+    <div class="form-group">
+      <label for="titre">Titre:</label>
+      <input id="titre" formControlName="titre" class="form-control" />
+      <div
+        *ngIf="
+          annonceForm.get('titre')?.invalid && annonceForm.get('titre')?.touched
+        "
+        class="text-danger"
+      >
+        <small *ngIf="annonceForm.get('titre')?.errors?.['required']"
+          >Title is required.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="localisation">Localisation:</label>
+      <input
+        id="localisation"
+        formControlName="localisation"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <input id="category" formControlName="category" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input id="price" formControlName="price" class="form-control" />
+      <div
+        *ngIf="
+          annonceForm.get('price')?.invalid && annonceForm.get('price')?.touched
+        "
+        class="text-danger"
+      >
+        <small *ngIf="annonceForm.get('price')?.errors?.['required']"
+          >Price is required.</small
+        >
+        <small *ngIf="annonceForm.get('price')?.errors?.['pattern']"
+          >Price must be a number.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="nombre_de_chambres">Nombre de Chambres:</label>
+      <input
+        id="nombre_de_chambres"
+        formControlName="nombre_de_chambres"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          annonceForm.get('nombre_de_chambres')?.invalid &&
+          annonceForm.get('nombre_de_chambres')?.touched
+        "
+        class="text-danger"
+      >
+        <small
+          *ngIf="annonceForm.get('nombre_de_chambres')?.errors?.['required']"
+          >Number of rooms is required.</small
+        >
+        <small
+          *ngIf="annonceForm.get('nombre_de_chambres')?.errors?.['pattern']"
+          >Must be a number.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="surface">Surface:</label>
+      <input id="surface" formControlName="surface" class="form-control" />
+      <div
+        *ngIf="
+          annonceForm.get('surface')?.invalid &&
+          annonceForm.get('surface')?.touched
+        "
+        class="text-danger"
+      >
+        <small *ngIf="annonceForm.get('surface')?.errors?.['required']"
+          >Surface is required.</small
+        >
+        <small *ngIf="annonceForm.get('surface')?.errors?.['pattern']"
+          >Must be a number.</small
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="annonceForm.invalid"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

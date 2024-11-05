@@ -1,11 +1,40 @@
 <div class="container">
-    <div *ngFor="let annonce of annonces" class="card">
-        <h3>{{ annonce.titre }}</h3>
-        <p><strong>Localisation:</strong> {{ annonce.localisation }}</p>
-        <p><strong>Catégorie:</strong> {{ annonce.category }}</p>
-        <p><strong>Prix:</strong> {{ annonce.price }} €</p>
-        <p><strong>Description:</strong> {{ annonce.description }}</p>
-        <p><strong>Chambres:</strong> {{ annonce.nombre_de_chambres }}</p>
-        <p><strong>Surface:</strong> {{ annonce.surface }} m²</p>
+  <div class="row">
+    <div *ngFor="let annonce of annonces" class="col-md-3 mb-3">
+      <div class="card h-100">
+        <img
+          src="https://via.placeholder.com/150"
+          class="card-img-top"
+          alt="Image Placeholder"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ annonce.titre }}</h5>
+          <p class="card-text">
+            <strong>Localisation:</strong> {{ annonce.localisation }}
+          </p>
+          <p class="card-text">
+            <strong>Catégorie:</strong> {{ annonce.category }}
+          </p>
+          <p class="card-text"><strong>Prix:</strong> {{ annonce.price }} €</p>
+          <p class="card-text">
+            <strong>Description:</strong> {{ annonce.description }}
+          </p>
+          <p class="card-text">
+            <strong>Chambres:</strong> {{ annonce.nombre_de_chambres }}
+          </p>
+          <p class="card-text">
+            <strong>Surface:</strong> {{ annonce.surface }} m²
+          </p>
+          <p class="card-text">
+            <strong>equipé :</strong>
+            <span *ngIf="annonce.equiped; else notEquipped">Oui</span>
+            <ng-template #notEquipped>Non equipé</ng-template>
+          </p>
+        </div>
+        <div class="card-footer text-center">
+          <button class="btn btn-primary" (click)="goToDetails(annonce.id)">Voir plus </button>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
