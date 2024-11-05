@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnnonceListComponent } from './components/annonce-list/annonce-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnnonceListComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
