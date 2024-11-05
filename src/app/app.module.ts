@@ -5,17 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnnonceListComponent } from './components/annonce-list/annonce-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AnnonceFormComponent } from './annonce-form/annonce-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnnonceListComponent,
     NavbarComponent,
+    AnnonceFormComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
