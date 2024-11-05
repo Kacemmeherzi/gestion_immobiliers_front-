@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Annonce } from 'src/app/models/annonce.model';
 import { AnnonceService } from 'src/app/services/annonce.service';
 
 @Component({
   selector: 'app-annonce-list',
   templateUrl: './annonce-list.component.html',
-  styleUrls: ['./annonce-list.component.css']
+  styleUrls: ['./annonce-list.component.css'],
 })
 export class AnnonceListComponent implements OnInit {
-
   annonces: Annonce[] = [];
   newAnnonce: Annonce = {
     titre: '',
@@ -17,10 +17,10 @@ export class AnnonceListComponent implements OnInit {
     price: '',
     description: '',
     nombre_de_chambres: '',
-    surface: ''
-  };
+    surface: '',
+    equiped: '',  };
 
-  constructor(private annonceService: AnnonceService) { }
+  constructor(private annonceService: AnnonceService , private router : Router){}
 
   ngOnInit(): void {
     this.loadAnnonces();
@@ -30,23 +30,28 @@ export class AnnonceListComponent implements OnInit {
     this.annonceService.getAnnonces().subscribe(
       (data: Annonce[]) => {
         this.annonces = data;
-        console.log('Données des annonces reçues:', data)  // Afficher les données dans la console
+        console.log('Données des annonces reçues:', data); // Afficher les données dans la console
       },
       (error) => {
         console.error('Erreur lors du chargement des annonces', error);
       }
     );
   }
+  goToDetails(id: number | undefined) {
+    if (id !== undefined) {
+      this.router.navigate(['/details', id]);
+    }
+  }
 
   createAnnonce() {
-    this.newAnnonce.date = new Date().toISOString();  // Génère la date actuelle
+    this.newAnnonce.date = new Date().toISOString(); // Génère la date actuelle
     this.annonceService.createAnnonce(this.newAnnonce).subscribe(
       (response) => {
-        console.log('Annonce créée avec succès:', response);  // Afficher la réponse du serveur
-        this.loadAnnonces();  // Recharge la liste après création
+        console.log('Annonce créée avec succès:', response); // Afficher la réponse du serveur
+        this.loadAnnonces(); // Recharge la liste après création
       },
       (error) => {
-        console.error('Erreur lors de la création de l\'annonce', error);
+        console.error("Erreur lors de la création de l'annonce", error);
       }
     );
   }
