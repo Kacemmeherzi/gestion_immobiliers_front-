@@ -1,0 +1,11 @@
+<div class="container">
+    <div *ngFor="let annonce of annonces" class="card">
+        <h3>{{ annonce.titre }}</h3>
+        <p><strong>Localisation:</strong> {{ annonce.localisation }}</p>
+        <p><strong>Catégorie:</strong> {{ annonce.category }}</p>
+        <p><strong>Prix:</strong> {{ annonce.price }} €</p>
+        <p><strong>Description:</strong> {{ annonce.description }}</p>
+        <p><strong>Chambres:</strong> {{ annonce.nombre_de_chambres }}</p>
+        <p><strong>Surface:</strong> {{ annonce.surface }} m²</p>
+    </div>
+</div>
