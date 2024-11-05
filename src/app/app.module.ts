@@ -7,6 +7,7 @@ import { AnnonceListComponent } from './components/annonce-list/annonce-list.com
 import { NavbarComponent } from './navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AnnonceFormComponent } from './annonce-form/annonce-form.component';
+import { AnnonceDetailsComponent } from './annonce-details/annonce-details.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AnnonceFormComponent } from './annonce-form/annonce-form.component';
     AnnonceListComponent,
     NavbarComponent,
     AnnonceFormComponent,
+    AnnonceDetailsComponent,
   ],
   imports: [
     BrowserModule,
