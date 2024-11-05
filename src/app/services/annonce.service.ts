@@ -4,13 +4,12 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AnnonceService {
+  private apiUrl = 'http://localhost:8000/annonce';
 
-  private apiUrl = 'http://localhost:8000/api/annonces';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAnnonces(): Observable<Annonce[]> {
     return this.http.get<Annonce[]>(`${this.apiUrl}`);
